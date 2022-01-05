@@ -7,7 +7,7 @@ from article_scraper.items import Article
 class WikipediaSpider(CrawlSpider):
     name = 'wikipedia'
     allowed_domains = ['en.wikipedia.org']
-    start_urls = ['http://en.wikipedia.org/wiki/Kevin_Bacon']
+    start_urls = ['http://en.wikipedia.org/wiki/San%C4%81tana_Dharma']
     rules=[Rule(LinkExtractor(allow=r'wiki/((?!:).)*$'),callback='parse_info',follow=True)]
 
     # custom_settings={
