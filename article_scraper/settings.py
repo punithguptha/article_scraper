@@ -14,12 +14,20 @@ NEWSPIDER_MODULE = 'article_scraper.spiders'
 
 #Instead of in the commands one can use this file to also specify certain settings
 # The CLOSESPIDER_PAGECOUNT setting doesnt exactly give us the results number that we are looking for..Since before the closing of the spider if there are some other requests in the queue they will get executed which leads to more than the specified amount of results
-CLOSESPIDER_PAGECOUNT=20
-FEED_URI='articles.json'
-FEED_FORMAT='json'
-FEED_EXPORT_ENCODING='utf-8'
+# CLOSESPIDER_PAGECOUNT=20
+# FEED_URI='articles.json'
+# FEED_FORMAT='json'
+# FEED_EXPORT_ENCODING='utf-8'
 # FEED_URI='articles.csv'
 # FEED_FORMAT='csv'
+
+# FEED_URI='cnntest.json'
+# FEED_FORMAT='json'
+# FEED_EXPORT_ENCODING='utf-8'
+
+# FEED_URI='yahootest.json'
+# FEED_FORMAT='json'
+FEED_EXPORT_ENCODING='utf-8'
 
 # FEED_URI='articles.xml'
 # FEED_FORMAT='xml'
@@ -75,8 +83,9 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 # The number beside pipeline is the priority..Lower gets executed first
 ITEM_PIPELINES = {
-   'article_scraper.pipelines.CheckItemPipeline': 100,
-   'article_scraper.pipelines.CleanDatePipeline':200
+   # 'article_scraper.pipelines.CheckItemPipeline': 100,
+   # 'article_scraper.pipelines.CleanDatePipeline':200
+   'article_scraper.pipelines.NewsArticlePipeline': 100
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

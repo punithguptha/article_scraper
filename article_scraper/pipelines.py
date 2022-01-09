@@ -20,3 +20,10 @@ class CleanDatePipeline:
         article['last_edited']=article['last_edited'].replace('This page was last edited on',' ').strip()
         article['last_edited']=datetime.strptime(article['last_edited'],'%d %B %Y, at %H:%M')
         return article
+
+class NewsArticlePipeline:
+    def process_item(self,newsArticle,spider):
+        if not newsArticle["author"]:
+            raise DropItem("Missing something...")
+        newsArticle["content"]=[text.strip() for text in newsArticle['content']]
+        return newsArticle
